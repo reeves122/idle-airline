@@ -1,9 +1,15 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import VuexPersistence from 'vuex-persist';
 
 Vue.use(Vuex);
 
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage,
+});
+
 export default new Vuex.Store({
+  plugins: [vuexLocal.plugin],
   state: {
     balance: 5,
     currentLevel: 1,
@@ -68,6 +74,11 @@ export default new Vuex.Store({
         state.currentPlanes.push(plane);
         state.balance -= plane.cost;
       }
+    },
+    resetGame(state) {
+      state.balance = 5;
+      state.currentLevel = 1;
+      state.currentPlanes = [];
     },
   },
   actions: {
