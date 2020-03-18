@@ -1,8 +1,11 @@
 <template>
   <div class="app" id="app">
-    <OverallStats/>
-    <CurrentPlanes/>
-    <ShopPlanes/>
+  <OverallStats/>
+  <b-tabs content-class="mt-3" align="center">
+    <b-tab title="Current Planes"><CurrentPlanes/></b-tab>
+    <b-tab title="Shop for Planes"><ShopPlanes/></b-tab>
+    <b-tab title="Upgrades">Coming Soon!</b-tab>
+  </b-tabs>
     <div class="footer">
       v1.0.0
       <button @click="resetGame()">Reset Game</button>
