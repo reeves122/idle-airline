@@ -4,14 +4,12 @@
     <table>
       <tr>
         <th>Name</th>
-        <th>Cost</th>
         <th>Flying Time</th>
         <th>Revenue Per Flight</th>
         <th>ETA (seconds)</th>
       </tr>
       <tr v-for="(plane, index) in planes" v-bind:key="index">
         <td>{{plane.name}}</td>
-        <td>{{plane.cost}}</td>
         <td>{{plane.flyTime}}s</td>
         <td>${{plane.revenue}}</td>
         <td v-bind:style="getETAColorStyle(eta(index))">{{eta(index)}}</td>
@@ -78,10 +76,8 @@ export default {
   text-align: center;
 }
 table {
+  margin: 0 auto;
   text-align: center;
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
 }
 th {
   padding: 10px;
