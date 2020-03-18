@@ -1,9 +1,21 @@
 <template>
 <div class="shop-planes">
   <h3>Shop for Planes</h3>
-  <div v-for="(plane, index) in planes" v-bind:key="plane.name">
-    <button @click="buyPlane(index)">{{ plane.name }} {{ plane.cost }}Buy!</button>
-  </div>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Flying Time</th>
+        <th>Revenue Per Flight</th>
+        <th>Cost</th>
+      </tr>
+      <tr v-for="(plane, index) in planes" v-bind:key="index">
+        <td>{{plane.name}}</td>
+        <td>{{plane.flyTime}}s</td>
+        <td>${{plane.revenue}}</td>
+        <td>${{plane.cost}}</td>
+        <td><button @click="buyPlane(index)">Buy</button></td>
+      </tr>
+    </table>
 </div>
 </template>
 
@@ -25,5 +37,17 @@ export default {
 <style scoped>
 .shop-planes {
   margin-bottom: 50px;
+  text-align: center;
+}
+table {
+  margin: 0 auto;
+  text-align: center;
+}
+th {
+  padding: 10px;
+}
+td {
+  padding: 5px;
+  border-bottom: 1px solid #000000;
 }
 </style>
