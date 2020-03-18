@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <OverallStats/>
+    <CurrentPlanes/>
+    <ShopPlanes/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import OverallStats from './components/OverallStats.vue';
+import CurrentPlanes from './components/CurrentPlanes.vue';
+import ShopPlanes from './components/ShopPlanes.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    OverallStats,
+    CurrentPlanes,
+    ShopPlanes,
+  },
+  methods: {
+    loop() {
+      this.$store.commit('gameLoop');
+      requestAnimationFrame(this.loop);
+    },
+  },
+  created() {
+    this.loop();
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  color: white;
+  background: #242629;
+  font-family: Verdana, Geneva, sans-serif;
 }
 </style>
